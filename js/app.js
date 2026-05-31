@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "heading": "🐾 ESPÉRANCE CHERCHE SON HAVRE DE PAIX 🐾",
     "age": "environ 4 ans",
     "birthDate": "Juin 2022",
-    "currentLocation": "À l'extérieur, Orléans",
+    "currentLocation": "Orléans",
     "contactPhone": "06 81 98 88 37",
     "photos": {
       "primary": "photo/1.png",
