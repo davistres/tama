@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐾 Fiche de Vie & Santé d'Espérance 🐾</title>
+  <meta name="description" content="Découvrez le profil complet d'Espérance: son histoire, son bilan de santé vétérinaire, ses besoins spécifiques et toutes ses photos.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- En-tête du site (Non imprimable) -->
+  <header class="site-header">
+    <div class="site-logo">
+      <span>🐾</span> Espérance
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-btn secondary">
+        <span>📋</span> Affiche Standard
+      </a>
+      <a href="affiche_coins.html" class="nav-btn secondary">
+        <span>🎨</span> Affiche "Coins & Centre"
+      </a>
+      <button onclick="window.print()" class="nav-btn primary">
+        <span>🖨️</span> Imprimer cette page
+      </button>
+    </nav>
+  </header>
+
+  <!-- Layout Principal -->
+  <main>
+    <div class="details-container">
+      
+      <!-- Colonne Gauche : Carte Profil -->
+      <aside class="profile-card">
+        <div class="profile-avatar-container">
+          <img src="photo/1.png" alt="Photo de profil d'Espérance" class="profile-avatar" id="avatar-img">
+          <span class="profile-badge">❤️</span>
+        </div>
+        
+        <h1 class="profile-name">Espérance</h1>
+        <p class="profile-subtitle">Chatte tricolore à adopter</p>
+        
+        <div class="profile-info-list">
+          <div class="profile-info-item">
+            <span class="profile-info-label">Âge :</span>
+            <span class="profile-info-value" id="info-age">environ 4 ans</span>
+          </div>
+          <div class="profile-info-item">
+            <span class="profile-info-label">Née en :</span>
+            <span class="profile-info-value" id="info-birth">Juin 2022</span>
+          </div>
+          <div class="profile-info-item">
+            <span class="profile-info-label">Localisation :</span>
+            <span class="profile-info-value" id="info-location">Orléans</span>
+          </div>
+          <div class="profile-info-item">
+            <span class="profile-info-label">Santé :</span>
+            <span class="profile-info-value" style="color: var(--primary);">Suivi cardiaque</span>
+          </div>
+        </div>
+        
+        <a href="tel:0681988837" class="contact-card-btn">
+          <span>📞</span> Nous contacter
+        </a>
+      </aside>
+
+      <!-- Colonne Droite : Contenu Détaillé -->
+      <section class="details-content">
+        
+        <!-- Section Histoire -->
+        <article class="details-section">
+          <h2 class="details-section-title">🐾 Qui est Espérance ?</h2>
+          <div id="details-history">
+            <p>Espérance est une jeune chatte tricolore d'environ 4 ans (née en juin 2022), qui vit actuellement à l'extérieur à Orléans. Après une histoire de vie complexe et une adoption difficile, elle s'est retrouvée livrée à elle-même dehors.</p>
+            <p>Nous sommes ses voisins. Nous faisons tout notre possible pour la nourrir et veiller sur elle, mais notre situation ne nous permet pas d'assumer les soins lourds et réguliers dont elle a besoin pour guérir. Nous lui cherchons donc une personne au grand cœur, patiente, et ayant les ressources financières nécessaires pour prendre soin d'elle.</p>
+          </div>
+        </article>
+
+        <!-- Section Cadre de Vie Idéal -->
+        <article class="details-section">
+          <h2 class="details-section-title">🏡 Son Cadre de Vie Idéal</h2>
+          <p>Pour s'épanouir et vivre sereinement, Espérance a des besoins bien spécifiques liés à son histoire et à son tempérament.</p>
+          <div class="requirements-grid" id="details-requirements">
+            <!-- Rempli par JS -->
+            <div class="requirement-card">
+              <span class="requirement-label">Accès extérieur obligatoire</span>
+              <span class="requirement-desc">Espérance a besoin de liberté. Elle préfère vivre dehors et ne rentre dans les habitations que lorsqu'elle le décide. Une maison avec jardin ou un appartement en rez-de-chaussée, idéalement équipé d'une chatière, est indispensable pour elle.</span>
+            </div>
+            <div class="requirement-card">
+              <span class="requirement-label">Seul animal du foyer (de préférence)</span>
+              <span class="requirement-desc">Bien que déclarée "ok chats et chiens" à l'origine, elle a été profondément traumatisée par les autres animaux de ses propriétaires actuels (elle fuit se cacher sous les voitures ou évite totalement leur jardin). Elle se montre parfois dominante avec les chats du quartier, mais reste très craintive face à d'autres. Pour son bien-être et sa sérénité, nous recherchons un foyer sans autre animal.</span>
+            </div>
+            <div class="requirement-card">
+              <span class="requirement-label">Patience requise</span>
+              <span class="requirement-desc">C'est une chatte douce mais craintive, qui aura besoin de temps pour accorder sa confiance.</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Section Santé & Soins -->
+        <article class="details-section">
+          <h2 class="details-section-title">🩺 Bilan de Santé & Suivi Médical</h2>
+          <p>Nous tenons à une transparence totale concernant l'état de santé d'Espérance afin que sa future famille s'engage en toute connaissance de cause. Elle a été présentée au vétérinaire le 27 mai 2026.</p>
+          
+          <div class="health-container">
+            <!-- Points Rassurants -->
+            <div class="health-block reassuring">
+              <h3 class="health-block-title">💚 Les points rassurants</h3>
+              <ul class="health-list" id="reassuring-list">
+                <li class="health-list-item">Elle est stérilisée et identifiée.</li>
+                <li class="health-list-item">Elle est négative au FIV (Sida du chat) et à la Leucose (FeLV).</li>
+                <li class="health-list-item">Ses bilans sanguins pour les reins et le foie sont normaux.</li>
+              </ul>
+            </div>
+
+            <!-- Soins Importants -->
+            <div class="health-block warning">
+              <h3 class="health-block-title">🧡 Soins à prévoir (Engagement)</h3>
+              <div class="health-care-list" id="care-list">
+                <div class="health-care-item">
+                  <p class="health-care-label">Suivi cardiaque et traitement à vie</p>
+                  <p class="health-care-desc">Souffle au cœur congénital (3/5). Nécessite un suivi régulier chez un cardiologue vétérinaire référencé et un traitement quotidien probable.</p>
+                </div>
+                <div class="health-care-item">
+                  <p class="health-care-label">Opération dentaire urgente</p>
+                  <p class="health-care-desc">Gingivite sévère à traiter par l'extraction de deux dents. Reçoit de la cortisone temporaire jusqu'à mi-juin, mais l'opération est requise à cause de son souffle au cœur.</p>
+                </div>
+                <div class="health-care-item">
+                  <p class="health-care-label">Surveillance de la thyroïde & asthme</p>
+                  <p class="health-care-desc">Thyroïde palpable à surveiller lors des bilans sanguins. Sensibilité respiratoire sous forme de crises de toux (asthme d'hiver).</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Galerie Photo -->
+        <article class="details-section">
+          <h2 class="details-section-title">📸 Galerie Photos</h2>
+          <p>Cliquez sur une image pour l'agrandir.</p>
+          <div class="gallery-grid" id="gallery-box">
+            <!-- Rempli par le JavaScript avec toutes les photos d'Espérance -->
+          </div>
+        </article>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- Lightbox pour la galerie photo -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <div class="lightbox-content">
+      <img src="" alt="Agrandissement" id="lightbox-img">
+    </div>
+  </div>
+
+  <!-- Footer Global (Non imprimable) -->
+  <footer class="site-footer">
+    <p>© 2026 - Ensemble pour Espérance. Site web responsive & Fiche complète.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐾 ESPÉRANCE - HAVRE DE PAIX (Coins & Centre) 🐾</title>
+  <meta name="description"
+    content="Affiche de présentation alternative d'Espérance avec disposition aux coins et au centre pour un text wrap harmonieux.">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Bibliothèque de QR code CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+    integrity="sha512-CNgIRecGo7nOMXXjpixt97yIXEeq45ZhKvEGlI7Luw147IPQLZZx745PgK52dXG5yAA3NCjOzOESsYF3C8cxg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+  <!-- En-tête (Non imprimable) -->
+  <header class="site-header">
+    <div class="site-logo">
+      <span>🐾</span> Espérance
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-btn secondary">
+        <span>📋</span> Voir l'Affiche Standard
+      </a>
+      <a href="details.html" class="nav-btn secondary">
+        <span>📖</span> Fiche Médicale & Détails
+      </a>
+      <button onclick="window.print()" class="nav-btn primary">
+        <span>🖨️</span> Imprimer
+      </button>
+    </nav>
+  </header>
+
+  <!-- Layout Principal -->
+  <main>
+    <!-- Affiche A5 Géométrique Paysage -->
+    <article class="flyer-corners" id="printable-flyer">
+
+      <div class="flyer-corners-header">
+        <h1 class="flyer-tagline" id="flyer-heading">🐾 ESPÉRANCE CHERCHE SON HAVRE DE PAIX 🐾</h1>
+        <p class="flyer-sub" id="flyer-subtitle">Un cœur à soigner, une vie douce à lui offrir</p>
+        <div class="divider"></div>
+      </div>
+
+      <!-- Structure 2 Colonnes + Image Centrale en Paysage -->
+      <div class="two-columns-layout">
+
+        <!-- Image Centrale Absolue Agrandie (Photo 1) - SANS bordure -->
+        <div class="center-image-container">
+          <img src="photo/1.png" alt="Espérance au centre" id="center-img">
+        </div>
+
+        <!-- Colonne Gauche -->
+        <div class="column column-left">
+          <!-- Cale Centrale Gauche pour text-wrap parfait -->
+          <div class="center-spacer-left"></div>
+
+          <!-- Paragraphe 1 : Coin Haut Gauche (Photo 3) -->
+          <p id="history-p1">
+            <img src="photo/3.jpg" alt="Espérance haut gauche" class="corner-img-top-left" id="top-left-img">
+            <strong class="text-right">Qui est Espérance ?</strong>
+            Espérance est une jeune chatte tricolore d'environ 4 ans (née en juin 2022), qui vit actuellement à
+            l'extérieur à Orléans. Après une histoire de vie complexe et une adoption difficile, elle s'est retrouvée
+            dehors.
+          </p>
+
+          <!-- Paragraphe 2 : Text-wrap automatique -->
+          <p id="history-p2">
+            Nous sommes ses voisins. Nous faisons tout notre possible pour la nourrir et veiller sur elle, mais notre
+            situation ne nous permet pas d'assumer les soins réguliers et lourds dont elle a besoin pour guérir.
+          </p>
+
+          <!-- Paragraphe 3 : Coin Bas Gauche (Photo a) -->
+          <p id="history-p3">
+            <img src="photo/a.png" alt="Espérance bas gauche" class="corner-img-bottom-left" id="bottom-left-img">
+            Nous lui cherchons donc une personne patiente et attentionnée, ayant les ressources financières et le cœur
+            nécessaires pour lui offrir la vie sereine qu'elle mérite.
+          </p>
+
+        </div>
+
+        <!-- Colonne Droite -->
+        <div class="column column-right">
+          <!-- Cale Centrale Droite pour text-wrap parfait -->
+          <div class="center-spacer-right"></div>
+
+          <!-- Paragraphe 1 : Coin Haut Droite (QR Code) -->
+          <div class="corner-qr-top-right" id="qrcode-box"></div>
+          <p id="help-p1">
+            <strong>Comment l'aider ?</strong><br>
+            Espérance a besoin d'un véritable parrainage de vie. Si vous disposez d'un extérieur calme et que vous avez
+            la
+            capacité d'assumer son suivi cardiaque régulier, vous pouvez l'accueillir.
+          </p>
+
+          <!-- Paragraphe 2 : Text-wrap automatique -->
+          <p id="help-p2">
+            Elle a besoin d'un environnement calme et patient pour s'épanouir en toute tranquillité, loin des
+            traumatismes passés de sa vie dans les rues du quartier.
+          </p>
+
+          <!-- Paragraphe 3 : Coin Bas Droite (Photo 2) -->
+          <p id="help-p3">
+            <img src="photo/2.png" alt="Espérance bas droite" class="corner-img-bottom-right" id="bottom-right-img">
+            Dossiers vétérinaires complets disponibles à la consultation. N'hésitez pas à nous contacter pour organiser
+            une rencontre et venir faire sa connaissance à Orléans.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- Pied de page -->
+      <footer class="flyer-corners-footer">
+        <p class="phone">📞 <span id="contact-number">06 81 98 88 37</span></p>
+        <p class="note">Pour toute question ou rendez-vous, contactez nous.</p>
+      </footer>
+
+    </article>
+  </main>
+
+  <!-- Boutons de contrôle (Non imprimables) -->
+  <div class="controls-container">
+    <button onclick="window.print()" class="control-btn accent">
+      <span>🖨️</span> Imprimer cette affiche paysage (A5)
+    </button>
+    <a href="details.html" class="control-btn">
+      <span>📖</span> Consulter la fiche complète d'Espérance
+    </a>
+  </div>
+
+  <!-- Pied de page global (Non imprimable) -->
+  <footer class="site-footer">
+    <p>© 2026 - Ensemble pour Espérance. Site web responsive & Affiche A5 Géométrique Paysage.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>

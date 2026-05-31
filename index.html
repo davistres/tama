@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐾 ESPÉRANCE CHERCHE SON HAVRE DE PAIX 🐾</title>
+  <meta name="description" content="Espérance est une jeune chatte tricolore d'environ 4 ans à Orléans cherchant un parrainage de vie chaleureux pour soigner son cœur.">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Inclusion de la bibliothèque de QR code légère par CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nOMXXjpixt97yIXEeq45ZhKvEGlI7Luw147IPQLZZx745PgK52dXG5yAA3NCjOzOESsYF3C8cxg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+
+  <!-- En-tête du site (Non imprimable) -->
+  <header class="site-header">
+    <div class="site-logo">
+      <span>🐾</span> Espérance
+    </div>
+    <nav class="nav-links">
+      <a href="affiche_coins.html" class="nav-btn secondary">
+        <span>🎨</span> Modèle "Coins & Centre"
+      </a>
+      <a href="details.html" class="nav-btn secondary">
+        <span>📖</span> Fiche Médicale & Détails
+      </a>
+      <button onclick="window.print()" class="nav-btn primary">
+        <span>🖨️</span> Imprimer l'Affiche
+      </button>
+    </nav>
+  </header>
+
+  <!-- Layout Principal -->
+  <main>
+    <!-- Affiche A5 -->
+    <article class="flyer-container" id="printable-flyer">
+      <div class="flyer-header">
+        <h1 class="flyer-tagline" id="flyer-heading">🐾 ESPÉRANCE CHERCHE SON HAVRE DE PAIX 🐾</h1>
+        <p class="flyer-sub" id="flyer-subtitle">Un cœur à soigner, une vie douce à lui offrir</p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="flyer-content">
+        <!-- Image principale à gauche avec text wrap -->
+        <img src="photo/1.png" alt="Espérance" class="wrap-image-left" id="primary-img">
+        
+        <h2 class="section-title">🐾 Qui est Espérance ?</h2>
+        <p id="history-p1">
+          Espérance est une jeune chatte tricolore d'environ 4 ans (née en juin 2022), qui vit actuellement à l'extérieur à Orléans. Après une histoire de vie complexe et une adoption difficile, elle s'est retrouvée livrée à elle-même dehors.
+        </p>
+        <p id="history-p2">
+          Nous sommes ses voisins. Nous faisons tout notre possible pour la nourrir et veiller sur elle, mais notre situation ne nous permet pas d'assumer les soins lourds et réguliers dont elle a besoin pour guérir. Nous lui cherchons donc une personne au grand cœur, patiente, et ayant les ressources financières nécessaires pour prendre soin d'elle.
+        </p>
+
+        <!-- Image secondaire à droite avec text wrap -->
+        <img src="photo/a.png" alt="Espérance dehors" class="wrap-image-right" id="secondary-img">
+
+        <h2 class="section-title">❤️ Comment l'aider ?</h2>
+        <p id="help-p1">
+          Espérance a besoin d'un véritable parrainage de vie. Si vous disposez d'un extérieur calme et que vous avez la capacité financière d'assumer son suivi cardiaque régulier, vous pouvez lui offrir la vie sereine qu'elle mérite.
+        </p>
+      </div>
+
+      <!-- Pied de page avec contact et QR Code dynamique -->
+      <footer class="flyer-footer">
+        <div class="contact-info">
+          <p class="contact-label">Pour toute question ou rencontre :</p>
+          <p class="contact-phone">
+            <span>📞</span> <span id="contact-number">06 81 98 88 37</span>
+          </p>
+          <p class="contact-details">
+            Dossier vétérinaire complet consultable. Visible à Orléans.
+          </p>
+        </div>
+
+        <!-- Zone du QR code dynamique -->
+        <div class="qr-container">
+          <div class="qr-code" id="qrcode-box">
+            <!-- Le QR code sera inséré ici en JS -->
+          </div>
+          <p class="qr-label">Scanner pour en savoir +</p>
+        </div>
+      </footer>
+    </article>
+  </main>
+
+  <!-- Boutons de contrôle rapides sous le flyer (Non imprimables) -->
+  <div class="controls-container">
+    <button onclick="window.print()" class="control-btn accent">
+      <span>🖨️</span> Imprimer l'affiche (A5)
+    </button>
+    <a href="details.html" class="control-btn">
+      <span>📖</span> Consulter la fiche complète d'Espérance
+    </a>
+  </div>
+
+  <!-- Footer global (Non imprimable) -->
+  <footer class="site-footer">
+    <p>© 2026 - Ensemble pour Espérance. Site web responsive & Affiche A5 imprimable.</p>
+  </footer>
+
+  <!-- Scripts JS pour charger le JSON et générer le QR Code -->
+  <script src="js/app.js"></script>
+</body>
+</html>

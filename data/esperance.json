@@ -1,0 +1,86 @@
+{
+  "name": "Espérance",
+  "subtitle": "Un cœur à soigner, une vie douce à lui offrir",
+  "heading": "🐾 ESPÉRANCE CHERCHE SON HAVRE DE PAIX 🐾",
+  "age": "environ 4 ans",
+  "birthDate": "Juin 2022",
+  "currentLocation": "À l'extérieur, Orléans",
+  "contactPhone": "06 81 98 88 37",
+  "history": {
+    "title": "Qui est Espérance ?",
+    "paragraphs": [
+      "Espérance est une jeune chatte tricolore d'environ 4 ans (née en juin 2022), qui vit actuellement à l'extérieur à Orléans. Après une histoire de vie complexe et une adoption difficile, elle s'est retrouvée livrée à elle-même dehors.",
+      "Nous sommes ses voisins. Nous faisons tout notre possible pour la nourrir et veiller sur elle, mais notre situation ne nous permet pas d'assumer les soins lourds et réguliers dont elle a besoin pour guérir. Nous lui cherchons donc une personne au grand cœur, patiente, et ayant les ressources financières nécessaires pour prendre soin d'elle."
+    ]
+  },
+  "howToHelp": {
+    "title": "Comment l'aider ?",
+    "paragraphs": [
+      "Espérance a besoin d'un véritable parrainage de vie. Si vous disposez d'un extérieur calme et que vous avez la capacité financière d'assumer son suivi cardiaque régulier, vous pouvez lui offrir la vie sereine qu'elle mérite.",
+      "Pour toute question, pour consulter les documents vétérinaires ou pour venir la rencontrer à Orléans : merci de contacter le 06 81 98 88 37."
+    ]
+  },
+  "idealLife": {
+    "title": "🏡 SON CADRE DE VIE IDÉAL (Besoins spécifiques) 🏡",
+    "requirements": [
+      {
+        "label": "Accès extérieur obligatoire",
+        "description": "Espérance a besoin de liberté. Elle préfère vivre dehors et ne rentre dans les habitations que lorsqu'elle le décide. Une maison avec jardin ou un appartement en rez-de-chaussée, idéalement équipé d'une chatière, est indispensable pour elle."
+      },
+      {
+        "label": "Seul animal du foyer (de préférence)",
+        "description": "Bien que déclarée 'ok chats et chiens' à l'origine, elle a été profondément traumatisée par les autres animaux de ses propriétaires actuels (elle fuit se cacher sous les voitures ou évite totalement leur jardin). Elle se montre parfois dominante avec les chats du quartier, mais reste très craintive face à d'autres. Pour son bien-être et sa sérénité, nous recherchons un foyer sans autre animal (ou alors, une cohabitation future sous très haute vigilance)."
+      },
+      {
+        "label": "Patience requise",
+        "description": "C'est une chatte douce mais craintive, qui aura besoin de temps pour accorder sa confiance."
+      }
+    ]
+  },
+  "medicalRecord": {
+    "title": "🩺 SON BILAN DE SANTÉ ET SUIVI MÉDICAL (Transparence totale) 🩺",
+    "veterinaryVisit": "Nous l'avons présentée au vétérinaire le 27 mai 2026.",
+    "reassuringPoints": {
+      "title": "Les points rassurants :",
+      "items": [
+        "Elle est stérilisée et identifiée (le transfert de propriété se fera officiellement avec l'accord écrit des propriétaires actuels, qui souhaitent qu'elle trouve une meilleure vie).",
+        "Elle est négative au FIV (Sida du chat) et à la Leucose (FeLV).",
+        "Ses bilans sanguins pour les reins et le foie sont normaux."
+      ]
+    },
+    "careNeeded": {
+      "title": "La réalité des soins à prévoir (fort engagement financier et personnel) :",
+      "items": [
+        {
+          "label": "Suivi cardiaque et traitement à vie",
+          "description": "Espérance a un souffle au cœur congénital (évalué à 3/5). Elle doit consulter un cardiologue vétérinaire (référé déjà établi). Cette visite débouchera très probablement sur un traitement médical à vie, impliquant des visites régulières chez le vétérinaire pour adapter et ajuster les dosages."
+        },
+        {
+          "label": "Opération dentaire urgente",
+          "description": "Elle souffre d'une gingivite sévère. Elle a reçu une injection temporaire de cortisone (efficace jusqu'à mi-juin environ) pour la soulager, mais ce traitement ne peut pas être renouvelé à cause de son problème cardiaque. Il faudra impérativement lui faire extraire deux dents pour régler définitivement ce problème."
+        },
+        {
+          "label": "Surveillance de la thyroïde",
+          "description": "Lors de l'examen, le vétérinaire a décelé une thyroïde palpable (qui n'était pas signalée sur son certificat de 2024). Bien que son taux de T4 actuel soit dans les normes de la prise de sang, c'est un point de vigilance à surveiller lors des prochains contrôles."
+        },
+        {
+          "label": "Vaccination à faire plus tard",
+          "description": "Ses vaccins ne sont pas à jour. Le vétérinaire a choisi de ne pas la vacciner lors de la dernière visite en raison de sa fragilité actuelle. Ce sera à planifier une fois qu'elle sera stabilisée."
+        },
+        {
+          "label": "Sensibilité respiratoire",
+          "description": "Elle présente des crises de toux impressionnantes (suspicion d'asthme, particulièrement en hiver) où elle s'étire le cou et tire la langue."
+        }
+      ]
+    }
+  },
+  "photos": {
+    "primary": "photo/1.png",
+    "others": [
+      "photo/a.png",
+      "photo/2.png",
+      "photo/3.jpg",
+      "photo/b.png"
+    ]
+  }
+}
