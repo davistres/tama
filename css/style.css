@@ -896,12 +896,14 @@ main {
   border-radius: var(--radius-md);
 }
 
-/* Wrapper iframe YouTube (maintenant utilisé pour la carte de lien) */
+/* Wrapper vidéo YouTube dans la lightbox */
 .lightbox-video-wrapper {
   display: none;
-  width: min(90vw, 480px);
+  width: min(92vw, 560px);
+  height: min(88vh, 996px); /* format portrait Shorts 9:16 — plus grand */
   border-radius: var(--radius-lg);
   overflow: hidden;
+  background: #000;
 }
 
 /* Carte vidéo YouTube (remplacement de l'iframe bloqué en file://) */
