@@ -552,9 +552,6 @@ main {
 
 .profile-avatar {
   width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
   border: none;
   box-shadow: var(--shadow-md);
 }
@@ -862,11 +859,11 @@ main {
   transform: scale(1.08);
 }
 
-/* Lightbox pour la galerie */
+/* Lightbox / Diaporama */
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(45, 43, 42, 0.95);
+  background: rgba(20, 18, 17, 0.96);
   z-index: 1000;
   display: none;
   align-items: center;
@@ -878,13 +875,17 @@ main {
   display: flex;
 }
 
+/* Contenu central (image ou vidéo) */
 .lightbox-content {
-  max-width: 90%;
-  max-height: 80%;
+  max-width: min(90vw, 900px);
+  max-height: 80vh;
   border-radius: var(--radius-md);
   overflow: hidden;
-  border: 3px solid white;
   box-shadow: var(--shadow-lg);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lightbox-content img {
@@ -892,24 +893,160 @@ main {
   max-width: 100%;
   max-height: 80vh;
   object-fit: contain;
+  border-radius: var(--radius-md);
 }
 
+/* Wrapper iframe YouTube (maintenant utilisé pour la carte de lien) */
+.lightbox-video-wrapper {
+  display: none;
+  width: min(90vw, 480px);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Carte vidéo YouTube (remplacement de l'iframe bloqué en file://) */
+.lb-video-card {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.lb-video-thumb {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  filter: brightness(0.65);
+}
+
+.lb-video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 2rem;
+}
+
+.lb-video-title {
+  color: white;
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+.lb-video-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: var(--primary);
+  color: white;
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.8rem 1.6rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(214,122,87,0.5);
+  transition: var(--transition);
+}
+
+.lb-video-btn:hover {
+  background: var(--primary-dark);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(214,122,87,0.6);
+}
+
+/* Bouton fermeture */
 .lightbox-close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 1rem;
+  right: 1.2rem;
   color: white;
   font-size: 2.5rem;
   cursor: pointer;
   background: none;
   border: none;
+  line-height: 1;
   transition: var(--transition);
+  z-index: 10;
 }
 
 .lightbox-close:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
   color: var(--primary-light);
 }
+
+/* Compteur (ex: 3 / 11) */
+.lightbox-counter {
+  position: absolute;
+  top: 1.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+
+/* Flèches de navigation */
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: white;
+  font-size: 3rem;
+  line-height: 1;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  z-index: 10;
+  user-select: none;
+}
+
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.lightbox-prev { left: 1rem; }
+.lightbox-next { right: 1rem; }
+
+/* Bouton ▶ sur les vignettes vidéo */
+.gallery-item-video {
+  position: relative;
+}
+
+.gallery-play-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  color: white;
+  background: rgba(20, 18, 17, 0.42);
+  border-radius: var(--radius-md);
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.gallery-item-video:hover .gallery-play-btn {
+  background: rgba(214, 122, 87, 0.65);
+  font-size: 2.6rem;
+}
+
 
 /* Footer Global (non imprimable) */
 .site-footer {

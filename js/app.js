@@ -149,42 +149,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 4. Logique de la page de détails (Fiche de vie)
   function setupDetailsPage(data) {
-    // Remplir les informations textuelles basiques
+    // Remplir uniquement les informations textuelles et l'avatar
+    // (la galerie est désormais codée statiquement dans details.html)
     document.getElementById("info-age").textContent = data.age;
     document.getElementById("info-birth").textContent = data.birthDate;
     document.getElementById("info-location").textContent = data.currentLocation;
     document.getElementById("avatar-img").src = data.photos.primary;
-
-    // Remplir la galerie photos avec TOUTES les images (principale + secondaires)
-    const galleryBox = document.getElementById("gallery-box");
-    if (galleryBox) {
-      galleryBox.innerHTML = ""; // Vider le container d'origine
-
-      // Réunir toutes les photos uniques (sauf b.png qui sert uniquement de watermark)
-      const allPhotos = [data.photos.primary, ...data.photos.others.filter(p => !p.includes("b.png"))];
-
-      allPhotos.forEach((photoPath, index) => {
-        const item = document.createElement("div");
-        item.className = "gallery-item";
-        item.setAttribute("data-src", photoPath);
-
-        const img = document.createElement("img");
-        img.src = photoPath;
-        img.alt = `Espérance - Photo ${index + 1}`;
-        img.loading = "lazy";
-
-        item.appendChild(img);
-        galleryBox.appendChild(item);
-
-        // Événement pour ouvrir la Lightbox
-        item.addEventListener("click", () => {
-          openLightbox(photoPath);
-        });
-      });
-    }
-
-    // Configurer la Lightbox
-    setupLightbox();
   }
 
   // Gestionnaire de Lightbox
