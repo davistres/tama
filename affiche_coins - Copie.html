@@ -23,8 +23,14 @@
     </div>
     <nav class="nav-links">
       <a href="index.html" class="nav-btn secondary">
+        <span>📋</span> Voir l'Affiche Standard
+      </a>
+      <a href="details.html" class="nav-btn secondary">
         <span>📖</span> Fiche Médicale & Détails
       </a>
+      <button onclick="window.print()" class="nav-btn primary">
+        <span>🖨️</span> Imprimer
+      </button>
     </nav>
   </header>
 
@@ -81,11 +87,8 @@
           <!-- Cale Centrale Droite pour text-wrap parfait -->
           <div class="center-spacer-right"></div>
 
-          <!-- Photo coin haut droite (remplace le QR code) -->
-          <div id="qrcode-box" style="display:none;"></div>
-          <div class="corner-top-right">
-            <img src="photo/chatcoeur.png" alt="Espérance - coin haut droite">
-          </div>
+          <!-- Paragraphe 1 : Coin Haut Droite (QR Code) -->
+          <div class="corner-qr-top-right" id="qrcode-box"></div>
           <p id="help-p1">
             <strong>Comment l'aider ?</strong><br>
             Espérance a besoin d'un véritable parrainage de vie. Si vous disposez d'un extérieur calme et que vous avez
@@ -120,7 +123,15 @@
     </article>
   </main>
 
-
+  <!-- Boutons de contrôle (Non imprimables) -->
+  <div class="controls-container">
+    <button onclick="window.print()" class="control-btn accent">
+      <span>🖨️</span> Imprimer cette affiche paysage (A5)
+    </button>
+    <a href="details.html" class="control-btn">
+      <span>📖</span> Consulter la fiche complète d'Espérance
+    </a>
+  </div>
 
   <!-- Pied de page global (Non imprimable) -->
   <footer class="site-footer">

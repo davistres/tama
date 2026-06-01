@@ -469,6 +469,25 @@ main {
   max-height: 100%;
 }
 
+/* Photo coin haut droite avec fondu progressif sur tous les côtés */
+.corner-top-right {
+  float: right;
+  width: 155px;
+  margin: 1.5rem 0 0.5rem 1.2rem;
+  shape-outside: margin-box;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.corner-top-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+
 .corner-img-bottom-left {
   float: left;
   width: 180px;
@@ -900,7 +919,8 @@ main {
 .lightbox-video-wrapper {
   display: none;
   width: min(92vw, 560px);
-  height: min(88vh, 996px); /* format portrait Shorts 9:16 — plus grand */
+  height: min(88vh, 996px);
+  /* format portrait Shorts 9:16 — plus grand */
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: #000;
@@ -940,7 +960,7 @@ main {
   font-size: 1.3rem;
   font-weight: 700;
   text-align: center;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .lb-video-btn {
@@ -955,14 +975,14 @@ main {
   padding: 0.8rem 1.6rem;
   border-radius: 2rem;
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(214,122,87,0.5);
+  box-shadow: 0 4px 16px rgba(214, 122, 87, 0.5);
   transition: var(--transition);
 }
 
 .lb-video-btn:hover {
   background: var(--primary-dark);
   transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(214,122,87,0.6);
+  box-shadow: 0 6px 20px rgba(214, 122, 87, 0.6);
 }
 
 /* Bouton fermeture */
@@ -1022,8 +1042,13 @@ main {
   transform: translateY(-50%) scale(1.05);
 }
 
-.lightbox-prev { left: 1rem; }
-.lightbox-next { right: 1rem; }
+.lightbox-prev {
+  left: 1rem;
+}
+
+.lightbox-next {
+  right: 1rem;
+}
 
 /* Bouton ▶ sur les vignettes vidéo */
 .gallery-item-video {
