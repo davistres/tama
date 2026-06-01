@@ -69,7 +69,7 @@
           <h2 class="details-section-title">🐾 Qui est Espérance ?</h2>
           <div id="details-history">
             <p>Espérance est une jeune chatte tricolore d'environ 4 ans (née en juin 2022), qui vit actuellement à
-              l'extérieur à Orléans. Après une histoire de vie complexe et une adoption difficile, elle s'est retrouvée
+              Orléans. Après une histoire de vie complexe et une adoption difficile, elle s'est retrouvée
               livrée à elle-même dehors.</p>
             <p>Nous sommes ses voisins. Nous faisons tout notre possible pour la nourrir et veiller sur elle, mais notre
               situation ne nous permet pas d'assumer les soins lourds et réguliers dont elle a besoin pour guérir. Nous
@@ -139,7 +139,8 @@
         <!-- Galerie Photos & Vidéos -->
         <article class="details-section">
           <h2 class="details-section-title">📸 Galerie Photos &amp; Vidéos</h2>
-          <p>Cliquez sur une photo ou une vidéo pour ouvrir le diaporama. Naviguez avec les flèches ou les touches ← →.</p>
+          <p>Cliquez sur une photo ou une vidéo pour ouvrir le diaporama. Naviguez avec les flèches ou les touches ← →.
+          </p>
           <div class="gallery-grid" id="gallery-box">
 
             <div class="gallery-item" onclick="openSlideshow(0)">
@@ -203,112 +204,141 @@
     <p>© 2026 - Ensemble pour Espérance.</p>
   </footer>
 
+  <!-- Bouton flottant mobile (apparaît quand le btn principal quitte l'écran) -->
+  <a href="tel:0681988837" class="floating-contact-btn" id="floating-contact-btn" aria-label="Nous contacter">
+    <span>📞</span> Nous contacter
+  </a>
+
   <script src="js/app.js"></script>
 
+  <!-- Bouton flottant : apparaît quand le bouton principal sort de l'écran -->
   <script>
-  (function () {
-    'use strict';
+    (function () {
+      var mainBtn = document.querySelector('.contact-card-btn');
+      var floatingBtn = document.getElementById('floating-contact-btn');
+      if (!mainBtn || !floatingBtn) return;
 
-    const MEDIA = [
-      { type: 'image', src: 'photo/galerie/20260315_103427.jpg',  label: 'Photo 1' },
-      { type: 'image', src: 'photo/galerie/20260325_162601.jpg',  label: 'Photo 2' },
-      { type: 'image', src: 'photo/galerie/20260401_204713.jpg',  label: 'Photo 3' },
-      { type: 'image', src: 'photo/galerie/20260401_204842.jpg',  label: 'Photo 4' },
-      { type: 'image', src: 'photo/galerie/20260401_205354.jpg',  label: 'Photo 5' },
-      { type: 'image', src: 'photo/galerie/20260501_160512.jpg',  label: 'Photo 6' },
-      { type: 'image', src: 'photo/galerie/20260517_102417.jpg',  label: 'Photo 7' },
-      { type: 'image', src: 'photo/galerie/20260525_193505.jpg',  label: 'Photo 8' },
-      { type: 'image', src: 'photo/galerie/image000000(4).jpg',   label: 'Photo 9' },
-      { type: 'video', videoId: '37vehs3UOGQ', label: 'Vidéo 1 — Espérance' },
-      { type: 'video', videoId: 'AfHTMRv_APE', label: 'Vidéo 2 — Espérance' },
-    ];
-
-    const lightbox    = document.getElementById('lightbox');
-    const lbImg       = document.getElementById('lightbox-img');
-    const lbVideoWrap = document.getElementById('lightbox-video-wrapper');
-    const lbCounter   = document.getElementById('lightbox-counter');
-    const btnClose    = document.getElementById('lightbox-close');
-    const btnPrev     = document.getElementById('lightbox-prev');
-    const btnNext     = document.getElementById('lightbox-next');
-
-    let currentIndex = 0;
-    const isHttp = location.protocol.startsWith('http');
-
-    function showMedia(index) {
-      currentIndex = (index + MEDIA.length) % MEDIA.length;
-      const media  = MEDIA[currentIndex];
-      lbCounter.textContent = (currentIndex + 1) + ' / ' + MEDIA.length;
-
-      if (media.type === 'image') {
-        lbImg.src             = media.src;
-        lbImg.alt             = media.label;
-        lbImg.style.display   = 'block';
-        lbVideoWrap.style.display = 'none';
-        lbVideoWrap.innerHTML = '';
-      } else {
-        lbImg.style.display       = 'none';
-        lbVideoWrap.style.display = 'flex';
-
-        if (isHttp) {
-          var embedUrl = 'https://www.youtube-nocookie.com/embed/' + media.videoId + '?autoplay=1&rel=0&playsinline=1';
-          lbVideoWrap.innerHTML =
-            '<iframe src="' + embedUrl + '" allow="autoplay; fullscreen" allowfullscreen ' +
-            'frameborder="0" title="' + media.label + '" style="width:100%;height:100%;border:none;"></iframe>';
+      function checkVisibility() {
+        var rect = mainBtn.getBoundingClientRect();
+        // Le bouton principal est visible si son bas est encore dans le viewport
+        var isVisible = rect.bottom > 0 && rect.top < window.innerHeight;
+        if (isVisible) {
+          floatingBtn.classList.remove('floating-contact-btn--visible');
         } else {
-          lbVideoWrap.innerHTML =
-            '<div class="lb-video-card">' +
-              '<img src="https://img.youtube.com/vi/' + media.videoId + '/hqdefault.jpg" ' +
-                   'alt="' + media.label + '" class="lb-video-thumb">' +
-              '<div class="lb-video-overlay">' +
-                '<p class="lb-video-title">' + media.label + '</p>' +
-                '<p class="lb-video-hint">⚠️ Pour lire la vidéo ici, ouvrez la page via<br>' +
-                  '<strong>http://localhost:8080/</strong></p>' +
-                '<a href="https://youtube.com/shorts/' + media.videoId + '" target="_blank" rel="noopener" class="lb-video-btn">' +
-                  '▶ Voir sur YouTube' +
-                '</a>' +
-              '</div>' +
-            '</div>';
+          floatingBtn.classList.add('floating-contact-btn--visible');
         }
       }
-    }
 
-    window.openSlideshow = function (index) {
-      showMedia(index);
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      btnClose.focus();
-    };
+      window.addEventListener('scroll', checkVisibility, { passive: true });
+      // Vérification initiale au chargement
+      checkVisibility();
+    })();
+  </script>
 
-    function closeSlideshow() {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-      lbImg.src = '';
-      lbVideoWrap.innerHTML = '';
-    }
+  <script>
+    (function () {
+      'use strict';
 
-    btnClose.addEventListener('click', closeSlideshow);
-    btnPrev.addEventListener('click', function () { showMedia(currentIndex - 1); });
-    btnNext.addEventListener('click', function () { showMedia(currentIndex + 1); });
+      const MEDIA = [
+        { type: 'image', src: 'photo/galerie/20260315_103427.jpg', label: 'Photo 1' },
+        { type: 'image', src: 'photo/galerie/20260325_162601.jpg', label: 'Photo 2' },
+        { type: 'image', src: 'photo/galerie/20260401_204713.jpg', label: 'Photo 3' },
+        { type: 'image', src: 'photo/galerie/20260401_204842.jpg', label: 'Photo 4' },
+        { type: 'image', src: 'photo/galerie/20260401_205354.jpg', label: 'Photo 5' },
+        { type: 'image', src: 'photo/galerie/20260501_160512.jpg', label: 'Photo 6' },
+        { type: 'image', src: 'photo/galerie/20260517_102417.jpg', label: 'Photo 7' },
+        { type: 'image', src: 'photo/galerie/20260525_193505.jpg', label: 'Photo 8' },
+        { type: 'image', src: 'photo/galerie/image000000(4).jpg', label: 'Photo 9' },
+        { type: 'video', videoId: '37vehs3UOGQ', label: 'Vidéo 1 — Espérance' },
+        { type: 'video', videoId: 'AfHTMRv_APE', label: 'Vidéo 2 — Espérance' },
+      ];
 
-    lightbox.addEventListener('click', function (e) {
-      if (e.target === lightbox) closeSlideshow();
-    });
+      const lightbox = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightbox-img');
+      const lbVideoWrap = document.getElementById('lightbox-video-wrapper');
+      const lbCounter = document.getElementById('lightbox-counter');
+      const btnClose = document.getElementById('lightbox-close');
+      const btnPrev = document.getElementById('lightbox-prev');
+      const btnNext = document.getElementById('lightbox-next');
 
-    document.addEventListener('keydown', function (e) {
-      if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape')          closeSlideshow();
-      else if (e.key === 'ArrowLeft')  showMedia(currentIndex - 1);
-      else if (e.key === 'ArrowRight') showMedia(currentIndex + 1);
-    });
+      let currentIndex = 0;
+      const isHttp = location.protocol.startsWith('http');
 
-    var touchStartX = 0;
-    lightbox.addEventListener('touchstart', function (e) { touchStartX = e.touches[0].clientX; }, { passive: true });
-    lightbox.addEventListener('touchend', function (e) {
-      var dx = e.changedTouches[0].clientX - touchStartX;
-      if (Math.abs(dx) > 50) showMedia(currentIndex + (dx < 0 ? 1 : -1));
-    }, { passive: true });
+      function showMedia(index) {
+        currentIndex = (index + MEDIA.length) % MEDIA.length;
+        const media = MEDIA[currentIndex];
+        lbCounter.textContent = (currentIndex + 1) + ' / ' + MEDIA.length;
 
-  })();
+        if (media.type === 'image') {
+          lbImg.src = media.src;
+          lbImg.alt = media.label;
+          lbImg.style.display = 'block';
+          lbVideoWrap.style.display = 'none';
+          lbVideoWrap.innerHTML = '';
+        } else {
+          lbImg.style.display = 'none';
+          lbVideoWrap.style.display = 'flex';
+
+          if (isHttp) {
+            var embedUrl = 'https://www.youtube-nocookie.com/embed/' + media.videoId + '?autoplay=1&rel=0&playsinline=1';
+            lbVideoWrap.innerHTML =
+              '<iframe src="' + embedUrl + '" allow="autoplay; fullscreen" allowfullscreen ' +
+              'frameborder="0" title="' + media.label + '" style="width:100%;height:100%;border:none;"></iframe>';
+          } else {
+            lbVideoWrap.innerHTML =
+              '<div class="lb-video-card">' +
+              '<img src="https://img.youtube.com/vi/' + media.videoId + '/hqdefault.jpg" ' +
+              'alt="' + media.label + '" class="lb-video-thumb">' +
+              '<div class="lb-video-overlay">' +
+              '<p class="lb-video-title">' + media.label + '</p>' +
+              '<p class="lb-video-hint">⚠️ Pour lire la vidéo ici, ouvrez la page via<br>' +
+              '<strong>http://localhost:8080/</strong></p>' +
+              '<a href="https://youtube.com/shorts/' + media.videoId + '" target="_blank" rel="noopener" class="lb-video-btn">' +
+              '▶ Voir sur YouTube' +
+              '</a>' +
+              '</div>' +
+              '</div>';
+          }
+        }
+      }
+
+      window.openSlideshow = function (index) {
+        showMedia(index);
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        btnClose.focus();
+      };
+
+      function closeSlideshow() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+        lbVideoWrap.innerHTML = '';
+      }
+
+      btnClose.addEventListener('click', closeSlideshow);
+      btnPrev.addEventListener('click', function () { showMedia(currentIndex - 1); });
+      btnNext.addEventListener('click', function () { showMedia(currentIndex + 1); });
+
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) closeSlideshow();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeSlideshow();
+        else if (e.key === 'ArrowLeft') showMedia(currentIndex - 1);
+        else if (e.key === 'ArrowRight') showMedia(currentIndex + 1);
+      });
+
+      var touchStartX = 0;
+      lightbox.addEventListener('touchstart', function (e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+      lightbox.addEventListener('touchend', function (e) {
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 50) showMedia(currentIndex + (dx < 0 ? 1 : -1));
+      }, { passive: true });
+
+    })();
   </script>
 
 </body>

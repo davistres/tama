@@ -451,11 +451,8 @@ main {
   float: right;
   width: 150px;
   height: 150px;
-  margin: 0 0 0.3rem 1.2rem;
   background: white;
   border: none;
-  border-radius: var(--radius-sm);
-  padding: 0.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -500,8 +497,8 @@ main {
 .corner-img-bottom-right {
   float: right;
   width: 180px;
-  height: 200px;
-  margin: 0.3rem 0 0 1.8rem;
+  height: 180px;
+  margin: 0.3rem 0 0 1.5rem;
   object-fit: cover;
   border: none;
   shape-outside: circle(50%);
@@ -559,9 +556,15 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  position: sticky;
-  top: 90px;
+  position: static; /* pas de sticky sur mobile */
   height: fit-content;
+}
+
+@media (min-width: 768px) {
+  .profile-card {
+    position: sticky;
+    top: 90px;
+  }
 }
 
 .profile-avatar-container {
@@ -1126,6 +1129,55 @@ main {
 }
 
 /* ==========================================================================
+   BOUTON FLOTTANT MOBILE — Appel rapide (hors écran du btn principal)
+   ========================================================================== */
+
+/* Caché par défaut sur tous les écrans */
+.floating-contact-btn {
+  display: none;
+}
+
+/* Activé uniquement sur mobile (< 768px) */
+@media (max-width: 767px) {
+  .floating-contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 999;
+    background: var(--primary);
+    color: #ffffff;
+    font-family: var(--font-title);
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.75rem 1.4rem;
+    border-radius: 50px;
+    box-shadow: 0 6px 20px rgba(214, 122, 87, 0.45);
+    text-decoration: none;
+    /* Caché par défaut : glissé en bas hors écran */
+    transform: translateY(120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                opacity 0.25s ease;
+  }
+
+  /* Visible quand le bouton principal n'est plus à l'écran */
+  .floating-contact-btn--visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .floating-contact-btn:active {
+    transform: translateY(2px) scale(0.97);
+    box-shadow: 0 3px 10px rgba(214, 122, 87, 0.3);
+  }
+}
+
+/* ==========================================================================
    STYLE D'IMPRESSION COMPACT FIABLE ET FLUIDE (BLOCKS ET FLOATS - SANS COUPURE)
    ========================================================================== */
 @media print {
@@ -1142,6 +1194,7 @@ main {
   .controls-container,
   .site-logo,
   .nav-links,
+  .floating-contact-btn,
   button,
   .nav-btn {
     display: none !important;
