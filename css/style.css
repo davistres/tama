@@ -556,7 +556,8 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  position: static; /* pas de sticky sur mobile */
+  position: static;
+  /* pas de sticky sur mobile */
   height: fit-content;
 }
 
@@ -1129,6 +1130,172 @@ main {
 }
 
 /* ==========================================================================
+   RESPONSIVE MOBILE — Affiche Coins (< 768px)
+   Annule la structure 2 colonnes, les floats et le text-wrap
+   ========================================================================== */
+
+/* Règles par défaut (desktop) : séparateur photo mobile caché */
+.mobile-separator-photo {
+  display: none;
+}
+
+/* Texte nav long visible par défaut, court caché */
+.nav-text-short {
+  display: none;
+}
+
+/* Sous 460px : afficher le texte court, cacher le long */
+@media (max-width: 459px) {
+  .nav-text-full {
+    display: none;
+  }
+
+  .nav-text-short {
+    display: inline;
+  }
+}
+
+@media (max-width: 767px) {
+
+  /* L'affiche passe en bloc simple, sans overflow caché */
+  .flyer-corners {
+    padding: 1.4rem 1rem;
+    min-height: unset;
+    overflow: visible;
+  }
+
+  /* Le layout 2 colonnes devient une colonne unique */
+  .two-columns-layout {
+    display: block;
+    gap: 0;
+    min-height: unset;
+    height: auto;
+  }
+
+  /* Image centrale : sort du positionnement absolu, centrée dans le flux */
+  .center-image-container {
+    position: static;
+    transform: none;
+    width: 140px;
+    height: auto;
+    margin: 0 auto 1.2rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .center-image-container img {
+    width: 140px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 0;
+  }
+
+  /* Les deux colonnes occupent 100% de la largeur */
+  .column,
+  .column-left,
+  .column-right {
+    width: 100%;
+    height: auto;
+    text-align: justify;
+    font-size: 0.92rem;
+  }
+
+  /* Annulation des cales (spacers) */
+  .center-spacer-left,
+  .center-spacer-right {
+    display: none;
+  }
+
+  /* Photo haut gauche (photo/3.jpg) : masquée à sa position float d'origine */
+  .corner-img-top-left {
+    display: none;
+  }
+
+  /* Titre "Qui est Espérance ?" recentré */
+  .text-right {
+    text-align: center !important;
+    word-spacing: normal;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Photo bas gauche (photo/a.png) : masquée */
+  .corner-img-bottom-left {
+    display: none;
+  }
+
+  /* QR code et photo haut droite : centrés, plus de float */
+  .corner-qr-top-right,
+  .corner-top-right {
+    float: none;
+    display: block;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 1rem;
+    shape-outside: none;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .corner-qr-top-right img,
+  .corner-top-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* photo/chatcoeur.png : masquée */
+  .column-right .corner-top-right {
+    display: none;
+  }
+
+  /* Photo bas droite (photo/2.png) : centrée */
+  .corner-img-bottom-right {
+    float: none;
+    display: block;
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    margin: 1rem auto 1.5rem;
+    border-radius: 50%;
+    shape-outside: none;
+  }
+
+  /* Paragraphes : nettoyage floats */
+  .column p {
+    margin-bottom: 0.8rem;
+    overflow: hidden;
+  }
+
+  /* Pied de page de l'affiche */
+  .flyer-corners-footer {
+    margin-top: 1rem;
+  }
+
+  /* Photo séparatrice mobile : visible et centrée entre les deux sections */
+  .mobile-separator-photo {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0 2rem 0;
+  }
+
+  .mobile-separator-photo img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+  }
+
+  /* "Comment l'aider ?" centré comme "Qui est Espérance ?" */
+  #help-p1>strong {
+    display: block;
+    text-align: center;
+    margin-bottom: 0.4rem;
+  }
+}
+
+/* ==========================================================================
    BOUTON FLOTTANT MOBILE — Appel rapide (hors écran du btn principal)
    ========================================================================== */
 
@@ -1161,7 +1328,7 @@ main {
     opacity: 0;
     pointer-events: none;
     transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-                opacity 0.25s ease;
+      opacity 0.25s ease;
   }
 
   /* Visible quand le bouton principal n'est plus à l'écran */
